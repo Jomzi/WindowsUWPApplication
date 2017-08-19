@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="CalorieCount.Views.AddEntryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CalorieCount.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#005377">
+        <Border BorderBrush="#0F1A20" CornerRadius="2,2,2,2" BorderThickness="5,5,5,5"/>
+        <StackPanel Margin="20,20,20,20" Background="#2E728F">
+            <TextBlock Margin="10,0,10,0" x:Name="ErrorTB" Foreground="#F1A208" FontWeight="Bold" Visibility="Collapsed"></TextBlock>
+            <TextBlock Margin="10,0,10,0" Foreground="White">Food Name:</TextBlock>
+            <TextBox  Margin="10,0,10,0" x:Name="FoodNameTB"></TextBox>
+            <TextBlock  Margin="10,0,10,0" Foreground="White">Amount of Calories</TextBlock>
+            <TextBox Margin="10,0,10,0" x:Name="CalorieAmountTB"></TextBox>
+            <RelativePanel  Margin="10,0,10,0">
+                <Button Margin="0,15,0,0" Content="Save" Width="100" Background="#FC6471" x:Name="SaveButton" Tapped="SaveButton_Tapped" Foreground="White"></Button>
+                <Button Margin="0,15,0,0" Content="Cancel" Width="100" RelativePanel.AlignRightWithPanel="True" Background="#B84953" x:Name="CancelButton" Tapped="CancelButton_Tapped" Foreground="White"></Button>
+            </RelativePanel>
+        </StackPanel>
+        <ListView Margin="22,205,22,22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" x:Name="foodlist" ItemsSource="{Binding}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel RelativePanel.AlignLeftWithPanel="True">
+                        <TextBlock Text="{Binding foodName}" FontWeight="Bold" Foreground="#D5C67A"></TextBlock>
+                        <TextBlock Text="{Binding calorieAmount}" Foreground="#D5C67A"></TextBlock>
+                        <TextBlock Text="{Binding dateAdded}" Height="30" Foreground="#F3EFDA"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
